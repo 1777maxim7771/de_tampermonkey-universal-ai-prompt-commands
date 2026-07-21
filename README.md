@@ -1,105 +1,99 @@
 # Tampermonkey Universal AI Prompt Commands DE
 
-**Tampermonkey Universal AI Prompt Commands DE** ist die deutsche Version eines Benutzerscripts für die Browser-Erweiterung **Tampermonkey**. Das Script hilft dabei, schneller mit KI-Chats wie ChatGPT, Gemini, Claude, Copilot und anderen Webseiten mit Texteingabefeld zu arbeiten.
+**Tampermonkey Universal AI Prompt Commands DE** ist die deutsche Lokalisierung eines Tampermonkey-Userscripts für die schnelle Arbeit mit KI-Chats.
 
-Die Hauptaufgabe des Scripts ist es, kurze Befehle `D1–D10` automatisch durch vorbereitete lange KI-Prompts auf Deutsch zu ersetzen. Dadurch muss man wiederkehrende lange Eingaben nicht jedes Mal neu schreiben.
-
----
-
-## Wofür ist dieses Script gedacht?
-
-Das Script ist für schnelle Prompt-Eingaben in KI-Chats gedacht.
-
-Es hilft besonders bei wiederkehrenden Aufgaben:
-
-- Texte ins Russische übersetzen;
-- Texte in einfaches Deutsch auf Niveau A2-B1 übersetzen;
-- Briefe kurz zusammenfassen;
-- Dokumente und Nachrichten zusammenfassen;
-- offizielle Texte einfach erklären;
-- Daten, Beträge, Namen, Organisationen, Fristen und Forderungen herausziehen;
-- eine Liste notwendiger Schritte erstellen;
-- offizielle Antworten oder Briefe vorbereiten.
+Das Script ersetzt universelle kurze Trigger `Q1–Q10` durch vorbereitete KI-Prompts. Diese Trigger sind nicht an eine Sprache gebunden: Benutzer können `Q1`, `Q2`, `Q3` und die anderen Trigger durch eigene Wörter, Befehle oder Formulierungen ersetzen.
 
 ---
 
-## Wie funktioniert das Script?
+## Zweck des Scripts
 
-Der Benutzer schreibt einen exakten Befehl in das Eingabefeld eines KI-Chats.
+Das Script dient zur schnellen Eingabe vorbereiteter Prompts in ChatGPT, Gemini, Claude, Copilot und anderen KI-Chats. Statt denselben langen Prompt immer wieder manuell zu schreiben, gibt man nur einen kurzen Trigger wie `Q1` ein und das Script fügt automatisch den vollständigen Prompt ein.
+
+---
+
+## Wie es funktioniert
+
+Das Script überwacht das aktive Eingabefeld auf einer Webseite. Wenn der gesamte Inhalt des Feldes exakt einem der Trigger `Q1–Q10` entspricht, wird dieser Inhalt durch den vorbereiteten Prompt ersetzt.
 
 Beispiel:
 
 ```text
-D1
+Q1
 ```
 
-Das Script ersetzt diesen Befehl automatisch durch einen vollständigen deutschen Prompt für eine genaue Übersetzung ins Russische.
-
-Weitere Beispiele:
+wird durch einen Prompt für eine genaue Übersetzung ins Deutsche ersetzt.
 
 ```text
-D3
+Q8
 ```
 
-wird durch einen Prompt für eine kurze thematische Zusammenfassung eines Briefes ersetzt.
+wird durch einen Prompt zum Extrahieren wichtiger Fakten aus einem Text ersetzt.
 
-```text
-D8
-```
-
-wird durch einen Prompt zum Herausziehen wichtiger Fakten aus einem Text ersetzt.
-
-```text
-D9
-```
-
-wird durch einen Prompt für eine Liste notwendiger Handlungen ersetzt.
+Normaler Text wird nicht verändert. Zum Beispiel wird `Q1 irgendein Text` nicht ersetzt, weil es keine exakte Übereinstimmung mit einem Trigger ist.
 
 ---
 
-## Befehle der deutschen Version
+## Eigene Trigger einstellen
 
-- `D1` — genaue Übersetzung eines Textes ins Russische.
-- `D2` — Zusammenfassung eines Textes auf Russisch.
-- `D3` — kurze thematische Briefzusammenfassung in einer Zeile.
-- `D4` — Übersetzung eines Textes in einfaches Deutsch A2-B1.
-- `D5` — Korrektur eines russischen Textes mit Erhaltung des Sinns.
-- `D6` — kurze offizielle Antwort auf Deutsch.
-- `D7` — einfache Erklärung eines Textes auf Russisch.
-- `D8` — Extraktion wichtiger Fakten aus einem Text.
-- `D9` — Liste notwendiger Handlungen auf Grundlage eines Textes.
-- `D10` — offizieller Brief auf Deutsch auf Grundlage eines Ausgangstextes.
+Die Trigger können direkt im Code im Objekt `COMMANDS` geändert werden.
 
-In dieser deutschen Version sind Kommentare, Beschreibung, Benachrichtigung und Prompts auf Deutsch formuliert.
+Zum Beispiel:
 
----
+```javascript
+'Q1': `...`
+```
 
-## Was muss vor der Installation installiert sein?
+kann ersetzt werden durch:
 
-Vor der Installation dieses Scripts muss im Browser die Erweiterung **Tampermonkey** installiert sein.
+```javascript
+'UEBERSETZEN': `...`
+```
 
-Tampermonkey ist eine Browser-Erweiterung zum Installieren und Ausführen von Benutzerscripten im Format `.user.js`.
+oder durch ein anderes Wort. `Q1–Q10` sind nur die universellen Standard-Trigger.
 
 ---
 
-## Schnelle Installation
+## Wo das Script verwendet werden kann
+
+Das Script ist vor allem für KI-Chats gedacht:
+
+- ChatGPT;
+- Google Gemini;
+- Claude;
+- Microsoft Copilot;
+- andere Webseiten mit Texteingabefeldern.
+
+Im Script steht:
+
+```javascript
+// @match        *://*/*
+```
+
+Das bedeutet, dass Tampermonkey das Script auf verschiedenen Webseiten ausführen kann. Die Ersetzung erfolgt nur bei einer exakten Übereinstimmung mit einem Trigger.
+
+---
+
+## Voraussetzung vor der Installation
+
+Vor der Installation muss die Browser-Erweiterung **Tampermonkey** installiert sein.
+
+Das Script wird nicht in GitHub und nicht in eine bestimmte Webseite installiert. Es wird in die Erweiterung **Tampermonkey** installiert. GitHub dient nur als Speicherort für die `.user.js`-Datei.
+
+---
+
+## Schnelle Installation über Raw-Link
 
 1. Installieren Sie **Tampermonkey** im Browser.
-2. Öffnen Sie den direkten Raw-Link zur Script-Datei:
+2. Öffnen Sie den Raw-Link:
 
 ```text
 https://raw.githubusercontent.com/1777maxim7771/de_tampermonkey-universal-ai-prompt-commands/main/tampermonkey-universal-ai-prompt-commands.user.js
 ```
 
-3. Tampermonkey sollte automatisch das Installationsfenster öffnen.
-4. Klicken Sie auf **Install / Installieren**.
-5. Öffnen Sie einen KI-Chat und geben Sie ein:
-
-```text
-D1
-```
-
-Wenn der Befehl durch einen langen Prompt ersetzt wird, ist das Script korrekt installiert.
+3. Tampermonkey sollte das Installationsfenster öffnen.
+4. Klicken Sie auf **Installieren / Install**.
+5. Öffnen Sie einen KI-Chat und geben Sie `Q1` ein.
 
 ---
 
@@ -113,48 +107,92 @@ tampermonkey-universal-ai-prompt-commands.user.js
 ```
 
 3. Klicken Sie auf **Raw**.
-4. Tampermonkey sollte die `.user.js`-Datei erkennen und die Installation anbieten.
-5. Klicken Sie auf **Install / Installieren**.
+4. Bestätigen Sie die Installation in Tampermonkey.
 
 ---
 
-## Wenn Raw nicht funktioniert
+## Import per URL in Tampermonkey
 
-Öffnen Sie Tampermonkey manuell:
+Wenn kein Installationsfenster erscheint:
 
-```text
-Tampermonkey → Dashboard → Utilities → Import from URL
-```
-
-Fügen Sie den Raw-Link ein:
-
-```text
-https://raw.githubusercontent.com/1777maxim7771/de_tampermonkey-universal-ai-prompt-commands/main/tampermonkey-universal-ai-prompt-commands.user.js
-```
+1. Öffnen Sie Tampermonkey.
+2. Gehen Sie zu **Dashboard**.
+3. Öffnen Sie **Utilities**.
+4. Suchen Sie **Import from URL**.
+5. Fügen Sie den Raw-Link aus diesem README ein.
+6. Bestätigen Sie die Installation.
 
 ---
 
 ## Manuelle Installation
 
 1. Öffnen Sie Tampermonkey.
-2. Klicken Sie auf **Create a new script / Neues Script erstellen**.
+2. Klicken Sie auf **Create a new script**.
 3. Löschen Sie die Standardvorlage.
-4. Kopieren Sie den gesamten Code aus `tampermonkey-universal-ai-prompt-commands.user.js`.
-5. Fügen Sie den Code in Tampermonkey ein.
+4. Kopieren Sie den Code aus `tampermonkey-universal-ai-prompt-commands.user.js`.
+5. Fügen Sie ihn in den Tampermonkey-Editor ein.
 6. Speichern Sie mit **Ctrl + S**.
 
 ---
 
-## Wichtiger Hinweis
+## Warum Tampermonkey das Script erkennt
 
-Das Script wird nicht in GitHub und nicht in eine bestimmte Webseite installiert. Es wird in der Browser-Erweiterung **Tampermonkey** installiert.
-
-GitHub dient nur als Speicherort für die Script-Datei.
-
-Im Script steht:
+Tampermonkey erkennt das Script an der Userscript-Kopfzeile:
 
 ```javascript
+// ==UserScript==
+// @name         Tampermonkey Universal AI Prompt Commands DE
 // @match        *://*/*
+// ==/UserScript==
 ```
 
-Das bedeutet, dass das Script auf verschiedenen Webseiten laufen kann. Es ersetzt aber nur exakte Befehle `D1–D10`. Normaler Text wird nicht verändert.
+und an der Dateiendung:
+
+```text
+.user.js
+```
+
+---
+
+## Standardbefehle
+
+- `Q1` — Text ins Deutsche übersetzen.
+- `Q2` — Text zusammenfassen.
+- `Q3` — kurze Briefzusammenfassung in einer Zeile.
+- `Q4` — Übersetzung in einfaches Deutsch A2-B1.
+- `Q5` — deutschen Text korrigieren.
+- `Q6` — kurze offizielle Antwort schreiben.
+- `Q7` — Text einfach erklären.
+- `Q8` — wichtige Fakten extrahieren.
+- `Q9` — Liste notwendiger Handlungen erstellen.
+- `Q10` — offizielles Schreiben auf Deutsch erstellen.
+
+---
+
+## Prüfung nach der Installation
+
+Öffnen Sie einen KI-Chat und geben Sie ein:
+
+```text
+Q1
+```
+
+Wenn das Script korrekt installiert ist, wird `Q1` durch den vollständigen Prompt ersetzt.
+
+---
+
+## Mögliche Probleme
+
+Wenn der Trigger nicht ersetzt wird, prüfen Sie:
+
+- ob das Script in Tampermonkey aktiviert ist;
+- ob die Seite nach der Installation neu geladen wurde;
+- ob der Trigger exakt eingegeben wurde, zum Beispiel `Q1`, ohne zusätzlichen Text;
+- ob Tampermonkey auf dieser Webseite ausgeführt werden darf;
+- ob der Cursor in einem editierbaren Eingabefeld steht.
+
+---
+
+## Projektziel
+
+Das Projekt beschleunigt wiederholte Arbeit mit KI-Chats. Es ermöglicht das schnelle Einfügen vorbereiteter Prompts für Übersetzung, Zusammenfassung, Briefanalyse, offizielle Antworten und Dokumentbearbeitung.
